@@ -8,6 +8,6 @@
 
 
 ## Files
-:green_circle: FinalProject.py 
-🔵circle:Covid_Data_Final.csv
+🟢 FinalProject.py  <br/>
+🔵 Covid_Data_Final.csv
 
