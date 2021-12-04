@@ -8,6 +8,8 @@
 
 
 ## Files
-🟢 FinalProject.py  <br/>
-🔵 Covid_Data_Final.csv
+🟣 FinalProject.py - Our project file  <br/>
+🔵 Covid_Data_Final.csv - CSV file of data necessary <br/>
+⚪ Milestone1.pdf - Summary1 of our final project <br/>
+⚪ Milestone2.pdf - Summary2 of our final pjoject<br/>
 
