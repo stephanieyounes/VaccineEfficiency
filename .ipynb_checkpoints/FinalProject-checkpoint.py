@@ -10,10 +10,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
-#%% Section 1 Milestone 2 Information 
-# Might remove this part
 df = pd.read_csv('Covid_Data_final.csv', header=[0],parse_dates=True)
 
+
+# Milestone 2 Information 
+# Might remove this part
 mex_cases = df.loc[df["iso_code"] == 'MEX',"total_cases"]
 usa_cases = df.loc[df["iso_code"] == 'USA',"total_cases"]
 chn_cases = df.loc[df["iso_code"] == 'CHN',"total_cases"]
@@ -43,12 +44,19 @@ plt.legend(countries)
 plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=30)) 
 plt.gca().xaxis.set_tick_params(rotation = 30)
 
-plt.show()    
+plt.show()
+     
 # End of Milestone2 Information/data
-#%% Section 2 Eric
+
+# Eric
 # Compare country's vaccnation data to number of day-to-day cases 
 #from March 2021 to October 2021 to analyze how the vaccine impacts covid cases
-#%% Section 3 Steph
+
+    
+
+
+# Steph
+# Comparing the vaccination count to the virus' mortality rate of these countries
 """
 COMPARING THE VACCINATION COUNT TO THE VIRUS' MORTALITY RATE OF THESE COUNTRIES
 
@@ -79,26 +87,21 @@ column_names = ["iso_code","continent","location","date","total_cases",
 
 
 #read file
-df = pd.read_csv("Covid_Data_final.csv", names=column_names,low_memory=False,parse_dates=True)
+df = pd.read_csv("Covid_Data_final.csv", names=column_names,low_memory=False)
+
+    
+new_deaths = df.new_deaths_per_million.to_list()
+new_vaccinations = df.new_vaccinations_smoothed.to_list()
 
 
-#USA new deaths & new vaccinations
-USA_new_deaths = df.loc[df["iso_code"] == 'USA',"new_deaths_per_million"]
-USA_new_vaccinations = df.loc[df["iso_code"] == 'USA',"new_vaccinations_smoothed"]
-
-
-USA_new_vaccinations.dropna(how='all')
-USA_new_deaths.dropna(how='all')
-
-USA_new_vaccinations.astype(int)
-USA_new_deaths.astype(int)
-
-
-
-plt.plot(USA_new_deaths,USA_new_vaccinations)  
+plt.plot(new_deaths,new_vaccinations)  
 plt.show()
 
-plt.show()
 
-#%% Section 4 Natalie
+
+
+
+# Natalie
 # Impact the vaccine has on the hospitalization rate of countries
+
+
