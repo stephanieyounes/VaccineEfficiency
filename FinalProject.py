@@ -87,18 +87,18 @@ USA_new_deaths = df.loc[df["iso_code"] == 'USA',"new_deaths_per_million"]
 USA_new_vaccinations = df.loc[df["iso_code"] == 'USA',"new_vaccinations_smoothed"]
 
 
-USA_new_vaccinations.dropna(how='all')
-USA_new_deaths.dropna(how='all')
+USA_new_vaccinations = USA_new_vaccinations.dropna() #how='all'
+USA_new_deaths = USA_new_deaths.dropna()
 
-USA_new_vaccinations.astype(int)
-USA_new_deaths.astype(int)
+print("%f is vac length",len(USA_new_vaccinations))
+print("%f is vac length",len(USA_new_deaths))
 
 
 
-plt.plot(USA_new_deaths,USA_new_vaccinations)  
+plt.bar(USA_new_deaths,USA_new_vaccinations)  
 plt.show()
 
-plt.show()
+
 
 #%% Section 4 Natalie
 # Impact the vaccine has on the hospitalization rate of countries
