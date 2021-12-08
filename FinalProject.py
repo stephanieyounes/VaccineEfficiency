@@ -10,6 +10,17 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
+USAfont = {'family': 'serif',
+        'color':  'darkblue',
+        'weight': 'normal',
+        'size': 16,
+        }
+CHINAfont = {'family': 'serif',
+        'color':  'darkred',
+        'weight': 'normal',
+        'size': 16,
+        }
+
 #%% Section 1 Milestone 2 Information 
 # Might remove this part
 df = pd.read_csv('Covid_Data_final.csv', header=[0],parse_dates=True)
@@ -50,21 +61,12 @@ plt.show()
 #from March 2021 to October 2021 to analyze how the vaccine impacts covid cases
 #%% Section 3 Steph
 """
-COMPARING THE VACCINATION COUNT TO THE VIRUS' MORTALITY RATE OF THESE COUNTRIES
+COMPARING THE VACCINATION COUNT TO THE VIRUS' MORTALITY RATE OF THESE
+#USA_new_vaccinations = USA_new_vaccinations.dropna() #how='all'
+#USA_new_deaths = USA_new_deaths.dropna()
 
-Parameters
-----------
-data : dict or dict-like
-    Data used to populate the new Series.
-index : Index or index-like, default None
-    Index for the new Series: if None, use dict keys.
-dtype : dtype, default None
-    The dtype for the new Series: if None, infer from data.
-
-Returns
--------
-_data : BlockManager for the new Series
-index : index for the new Series
+#print("%f is vac length",len(USA_new_vaccinations))
+#print("%f is vac length",len(USA_new_deaths))
 """
 
 #Read column names into array
@@ -81,22 +83,81 @@ column_names = ["iso_code","continent","location","date","total_cases",
 #read file
 df = pd.read_csv("Covid_Data_final.csv", names=column_names,low_memory=False,parse_dates=True)
 
-
-#USA new deaths & new vaccinations
 USA_new_deaths = df.loc[df["iso_code"] == 'USA',"new_deaths_per_million"]
 USA_new_vaccinations = df.loc[df["iso_code"] == 'USA',"new_vaccinations_smoothed"]
 
-
-USA_new_vaccinations = USA_new_vaccinations.dropna() #how='all'
-USA_new_deaths = USA_new_deaths.dropna()
-
-print("%f is vac length",len(USA_new_vaccinations))
-print("%f is vac length",len(USA_new_deaths))
+CHN_new_deaths = df.loc[df["iso_code"] == 'CHN',"new_deaths_per_million"]
+CHN_new_vaccinations = df.loc[df["iso_code"] == 'CHN',"new_vaccinations_smoothed"]
 
 
-
-plt.bar(USA_new_deaths,USA_new_vaccinations)  
+"""
+USA DEATHS PER DAY
+"""
+#plotting
+ax = plt.gca()
+ax.set_facecolor("tomato")
+plt.plot(usa_date,USA_new_deaths)
+# x-axis
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=30)) 
+plt.gca().xaxis.set_tick_params(rotation = 30)
+# y-axis
+plt.gca().yaxis.set_major_locator(mdates.DayLocator(interval=30)) 
+plt.ylabel("Deaths")
+plt.xlabel("Date")
+plt.title('USA Deaths Per Day', fontdict=USAfont)
 plt.show()
+
+"""
+USA VACINNATIONS PER DAY
+"""
+ax = plt.gca()
+ax.set_facecolor("tomato")
+plt.plot(usa_date,USA_new_vaccinations)
+# x-axis
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=30)) 
+plt.gca().xaxis.set_tick_params(rotation = 30)
+# y-axis
+plt.gca().yaxis.set_major_locator(mdates.DayLocator(interval=30)) 
+#plotting
+
+plt.xlabel("Date")
+plt.ylabel("Vaccinations")
+plt.title('USA Vaccinations Per Day', fontdict=USAfont)
+plt.show()
+"""
+CHINA DEATHS PER DAY
+"""
+ax = plt.gca()
+ax.set_facecolor("sandybrown")
+plt.plot(chn_date,CHN_new_deaths)
+# x-axis
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=30)) 
+plt.gca().xaxis.set_tick_params(rotation = 30)
+# y-axis
+plt.gca().yaxis.set_major_locator(mdates.DayLocator(interval=30)) 
+#plotting
+plt.xlabel("Date")
+plt.ylabel("Deaths")
+plt.title('China Deaths Per Day', fontdict=CHINAfont)
+plt.show()
+"""
+CHINA VACCINATIONS PER DAY
+"""
+ax = plt.gca()
+ax.set_facecolor("sandybrown")
+plt.plot(chn_date,CHN_new_vaccinations)
+# x-axis
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=30)) 
+plt.gca().xaxis.set_tick_params(rotation = 30)
+# y-axis
+#plt.gca().yaxis.set_major_locator(mdates.DayLocator(interval=30)) 
+
+#plotting
+plt.xlabel("Date")
+plt.ylabel("Vaccinations")
+plt.title('China Vaccinations Per Day', fontdict=CHINAfont)
+plt.show()
+
 
 
 
