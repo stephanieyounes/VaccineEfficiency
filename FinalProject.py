@@ -230,3 +230,132 @@ plt.show()
 
 #%% Section 4 Natalie
 # Impact the vaccine has on the hospitalization rate of countries
+
+#read file
+df = pd.read_csv("Covid_Data_final.csv", index_col=0)
+
+#Vaccination and Hospital Admission rate for USA, Israel, Denmark, Portugal, Italy, and Latvia
+weekly_date = df.dropna(subset=['weekly_hosp_admissions_per_million'])
+
+
+USA_new_vaccinations = weekly_date.loc['USA', "new_vaccinations_smoothed"]
+USA_hospital_admissions = weekly_date.loc['USA', "weekly_hosp_admissions_per_million"]
+USA_weekly_date = weekly_date.loc['USA', "date"]
+
+ISR_new_vaccinations = weekly_date.loc['ISR', "new_vaccinations_smoothed"]
+ISR_hospital_admissions = weekly_date.loc['ISR', "weekly_hosp_admissions_per_million"]
+ISR_weekly_date = weekly_date.loc['ISR', "date"]
+
+DNK_new_vaccinations = weekly_date.loc['DNK', "new_vaccinations_smoothed"]
+DNK_hospital_admissions = weekly_date.loc['DNK', "weekly_hosp_admissions_per_million"]
+DNK_weekly_date = weekly_date.loc['DNK', "date"]
+
+PRT_new_vaccinations = weekly_date.loc['PRT', "new_vaccinations_smoothed"]
+PRT_hospital_admissions = weekly_date.loc['PRT', "weekly_hosp_admissions_per_million"]
+PRT_weekly_date = weekly_date.loc['PRT', "date"]
+
+ITA_new_vaccinations = weekly_date.loc['ITA', "new_vaccinations_smoothed"]
+ITA_hospital_admissions = weekly_date.loc['ITA', "weekly_hosp_admissions_per_million"]
+ITA_weekly_date = weekly_date.loc['ITA', "date"]
+
+LVA_new_vaccinations = weekly_date.loc['LVA', "new_vaccinations_smoothed"]
+LVA_hospital_admissions = weekly_date.loc['LVA', "weekly_hosp_admissions_per_million"]
+LVA_weekly_date = weekly_date.loc['LVA', "date"]
+
+
+#USA graph 
+fig = plt.figure()
+
+x_axis = np.arange(len(USA_weekly_date))
+
+plt.bar(x_axis - 0.1, USA_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
+plt.bar(x_axis + 0.1, USA_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+
+plt.xticks(x_axis, USA_weekly_date)
+plt.title("USA : Number of Vaccinations vs. Number of Hospitalizations")
+plt.xlabel("Dates")
+plt.ylabel("Amount")
+plt.legend()
+plt.semilogy()
+plt.show()
+
+#Israel graph 
+fig = plt.figure()
+
+x_axis = np.arange(len(ISR_weekly_date))
+
+plt.bar(x_axis - 0.1, ISR_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
+plt.bar(x_axis + 0.1, ISR_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+
+plt.xticks(x_axis, ISR_weekly_date)
+plt.title("Israel : Number of Vaccinations vs. Number of Hospitalizations")
+plt.xlabel("Dates")
+plt.ylabel("Amount")
+plt.legend()
+plt.semilogy()
+plt.show()
+
+#Denmark graph 
+fig = plt.figure()
+
+x_axis = np.arange(len(DNK_weekly_date))
+
+plt.bar(x_axis - 0.1, DNK_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
+plt.bar(x_axis + 0.1, DNK_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+
+plt.xticks(x_axis, DNK_weekly_date)
+plt.title("Denmark : Number of Vaccinations vs. Number of Hospitalizations")
+plt.xlabel("Dates")
+plt.ylabel("Amount")
+plt.legend()
+plt.semilogy()
+plt.show()
+
+#Portugal graph 
+fig = plt.figure()
+
+x_axis = np.arange(len(PRT_weekly_date))
+
+plt.bar(x_axis - 0.1, PRT_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
+plt.bar(x_axis + 0.1, PRT_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+
+plt.xticks(x_axis, PRT_weekly_date)
+plt.title("Portugal : Number of Vaccinations vs. Number of Hospitalizations")
+plt.xlabel("Dates")
+plt.ylabel("Amount")
+plt.legend()
+plt.semilogy()
+plt.show()
+
+#Italy graph 
+fig = plt.figure()
+
+x_axis = np.arange(len(ITA_weekly_date))
+
+plt.bar(x_axis - 0.1, ITA_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
+plt.bar(x_axis + 0.1, ITA_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+
+plt.xticks(x_axis, ITA_weekly_date)
+plt.title("Italy : Number of Vaccinations vs. Number of Hospitalizations")
+plt.xlabel("Dates")
+plt.ylabel("Amount")
+plt.legend()
+plt.semilogy()
+plt.show()
+
+#Latvia graph 
+fig = plt.figure()
+
+x_axis = np.arange(len(LVA_weekly_date))
+
+plt.bar(x_axis - 0.1, LVA_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
+plt.bar(x_axis + 0.1, LVA_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+
+plt.xticks(x_axis, LVA_weekly_date)
+plt.title("Latvia : Number of Vaccinations vs. Number of Hospitalizations")
+plt.xlabel("Dates")
+plt.ylabel("Amount")
+plt.legend()
+plt.semilogy()
+plt.show()
+
