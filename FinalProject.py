@@ -235,7 +235,7 @@ plt.show()
 df = pd.read_csv("Covid_Data_final.csv", index_col=0)
 
 #Vaccination and Hospital Admission rate for USA, Israel, Denmark, Portugal, Italy, and Latvia
-weekly_date = df.dropna(subset=['weekly_hosp_admissions_per_million'])
+weekly_date = df.dropna(subset=['weekly_hosp_admissions_per_million']) #Got weekly dates first
 
 
 USA_new_vaccinations = weekly_date.loc['USA', "new_vaccinations_smoothed"]
@@ -268,14 +268,16 @@ fig = plt.figure()
 
 x_axis = np.arange(len(USA_weekly_date))
 
-plt.bar(x_axis - 0.1, USA_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
-plt.bar(x_axis + 0.1, USA_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+plt.bar(x_axis, USA_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+plt.bar(x_axis, USA_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
 
 plt.xticks(x_axis, USA_weekly_date)
+plt.tick_params(axis='x', labelrotation=50)
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=5)) 
 plt.title("USA : Number of Vaccinations vs. Number of Hospitalizations")
 plt.xlabel("Dates")
 plt.ylabel("Amount")
-plt.legend()
+plt.legend(loc='center right')
 plt.semilogy()
 plt.show()
 
@@ -284,14 +286,16 @@ fig = plt.figure()
 
 x_axis = np.arange(len(ISR_weekly_date))
 
-plt.bar(x_axis - 0.1, ISR_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
-plt.bar(x_axis + 0.1, ISR_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+plt.bar(x_axis, ISR_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+plt.bar(x_axis, ISR_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
 
 plt.xticks(x_axis, ISR_weekly_date)
+plt.tick_params(axis='x', labelrotation=50)
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=5)) 
 plt.title("Israel : Number of Vaccinations vs. Number of Hospitalizations")
 plt.xlabel("Dates")
 plt.ylabel("Amount")
-plt.legend()
+plt.legend(loc='center right')
 plt.semilogy()
 plt.show()
 
@@ -300,14 +304,16 @@ fig = plt.figure()
 
 x_axis = np.arange(len(DNK_weekly_date))
 
-plt.bar(x_axis - 0.1, DNK_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
-plt.bar(x_axis + 0.1, DNK_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+plt.bar(x_axis, DNK_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+plt.bar(x_axis, DNK_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
 
 plt.xticks(x_axis, DNK_weekly_date)
+plt.tick_params(axis='x', labelrotation=50)
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=5)) 
 plt.title("Denmark : Number of Vaccinations vs. Number of Hospitalizations")
 plt.xlabel("Dates")
 plt.ylabel("Amount")
-plt.legend()
+plt.legend(loc='center right')
 plt.semilogy()
 plt.show()
 
@@ -316,14 +322,16 @@ fig = plt.figure()
 
 x_axis = np.arange(len(PRT_weekly_date))
 
-plt.bar(x_axis - 0.1, PRT_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
-plt.bar(x_axis + 0.1, PRT_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+plt.bar(x_axis, PRT_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+plt.bar(x_axis, PRT_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
 
 plt.xticks(x_axis, PRT_weekly_date)
+plt.tick_params(axis='x', labelrotation=50)
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=5)) 
 plt.title("Portugal : Number of Vaccinations vs. Number of Hospitalizations")
 plt.xlabel("Dates")
 plt.ylabel("Amount")
-plt.legend()
+plt.legend(loc='center right')
 plt.semilogy()
 plt.show()
 
@@ -332,14 +340,16 @@ fig = plt.figure()
 
 x_axis = np.arange(len(ITA_weekly_date))
 
-plt.bar(x_axis - 0.1, ITA_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
-plt.bar(x_axis + 0.1, ITA_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+plt.bar(x_axis, ITA_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+plt.bar(x_axis, ITA_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
 
 plt.xticks(x_axis, ITA_weekly_date)
+plt.tick_params(axis='x', labelrotation=50)
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=5)) 
 plt.title("Italy : Number of Vaccinations vs. Number of Hospitalizations")
 plt.xlabel("Dates")
 plt.ylabel("Amount")
-plt.legend()
+plt.legend(loc='center right')
 plt.semilogy()
 plt.show()
 
@@ -348,14 +358,16 @@ fig = plt.figure()
 
 x_axis = np.arange(len(LVA_weekly_date))
 
-plt.bar(x_axis - 0.1, LVA_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
-plt.bar(x_axis + 0.1, LVA_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+plt.bar(x_axis, LVA_new_vaccinations, 0.4, color=['red'], label ='Vaccinations')
+plt.bar(x_axis, LVA_hospital_admissions, 0.4, color=['blue'], label= 'Hospital Admissions')
 
 plt.xticks(x_axis, LVA_weekly_date)
+plt.tick_params(axis='x', labelrotation=50)
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=5)) 
 plt.title("Latvia : Number of Vaccinations vs. Number of Hospitalizations")
 plt.xlabel("Dates")
 plt.ylabel("Amount")
-plt.legend()
+plt.legend(loc='center right')
 plt.semilogy()
 plt.show()
 
