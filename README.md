@@ -10,4 +10,4 @@
 ## Files
 🟣 FinalProject.py - Our project file  <br/>
 🔵 Covid_Data_Final.csv - CSV file of data necessary <br/>
-
+🟢 COVID-19 Vaccine EfficiencyFINALREPORT.pdf - Our final report including an analysis and visuals of the graphs made!<br/>
