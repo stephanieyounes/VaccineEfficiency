@@ -76,23 +76,33 @@ plt.legend(countries)
 plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=30)) 
 plt.gca().xaxis.set_tick_params(rotation = 30)
 
-plt.show()    
+plt.show()  
+
+
+print("Rows in file:",len(df))  
+print("Columns in file:",len(df.axes[1])) 
+print("USA days represented:",len(usa_cases)) 
+print("China days represented:",len(chn_cases)) 
+print("Brazil days represented:",len(bra_cases)) 
+print("Italy days represented:",len(ita_cases)) 
+print("Jordan days represented:",len(jor_cases)) 
+
 # End of Milestone2 Information/data
 #%% Section 2 Eric
 # Compare country's vaccnation data to number of day-to-day cases 
 #from March 2021 to October 2021 to analyze how the vaccine impacts covid cases
 #%% Section 3 Steph
 """
-COMPARING THE VACCINATION COUNT TO THE VIRUS' MORTALITY RATE OF THESE
-#USA_new_vaccinations = USA_new_vaccinations.dropna() #how='all'
-#USA_new_deaths = USA_new_deaths.dropna()
-
-#print("%f is vac length",len(USA_new_vaccinations))
-#print("%f is vac length",len(USA_new_deaths))
+COMPARING THE VACCINATION COUNT TO THE VIRUS' MORTALITY RATE OF
+- USA
+- CHINA
+- MEXICO
+- ITALY
+- BRAZIL
+- JORDAN
 """
 
 #Read column names into array
-
 column_names = ["iso_code","continent","location","date","total_cases",
                 "new_cases","total_deaths","new_deaths","total_cases_per_million",
                 "new_cases_per_million","total_deaths_per_million",
@@ -123,7 +133,6 @@ ITA_new_vaccinations = df.loc[df["iso_code"] == 'ITA',"new_vaccinations_smoothed
 
 JOR_new_deaths = df.loc[df["iso_code"] == 'JOR',"new_deaths_per_million"]
 JOR_new_vaccinations = df.loc[df["iso_code"] == 'JOR',"new_vaccinations_smoothed"]
-
 
 """
 USA 
@@ -157,7 +166,7 @@ plt.legend(loc='upper right')
 plt.semilogy()
 plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=30)) 
 plt.gca().xaxis.set_tick_params(rotation = 30)
-plt.title("China Daya Per Day",fontdict=CHINAfont)
+plt.title("China Data Per Day",fontdict=CHINAfont)
 plt.show()
 """
 MEXICO 
