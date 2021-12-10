@@ -373,3 +373,106 @@ plt.ylabel("Amount")
 plt.legend(loc='center right')
 plt.semilogy()
 plt.show()
+
+#Mexico graph
+mex_cases = df.loc[df["iso_code"] == 'MEX',"total_cases"]
+mex_new = df.loc[df["iso_code"] == 'MEX',"new_cases"]
+mex_vacc = df.loc[df["iso_code"] == 'MEX',"new_vaccinations_smoothed"]
+
+date = df.loc[df["iso_code"] == 'MEX', "date"]
+
+plt.bar(date,mex_vacc, label = 'Vaccination', color='darkred')
+plt.bar(date,mex_new, label = 'New Cases', color='lightcoral')
+
+plt.legend()
+plt.semilogy()
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=30)) 
+plt.gca().xaxis.set_tick_params(rotation = 30)
+plt.title('Mexico Daily Chart')
+plt.show()
+
+#Italy graph
+ita_cases = df.loc[df["iso_code"] == 'ITA',"total_cases"]
+ita_new = df.loc[df["iso_code"] == 'ITA',"new_cases"]
+ita_vacc = df.loc[df["iso_code"] == 'ITA',"new_vaccinations_smoothed"]
+
+date = df.loc[df["iso_code"] == 'MEX', "date"]
+
+plt.bar(date,ita_vacc, label = 'Vaccination', color='darkorchid')
+plt.bar(date,ita_new, label = 'New Cases', color='orchid')
+
+plt.legend()
+plt.semilogy()
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=30)) 
+plt.gca().xaxis.set_tick_params(rotation = 30)
+plt.title('Italy Daily Chart')
+plt.show()
+
+#Brazil graph
+bra_cases = df.loc[df["iso_code"] == 'BRA',"total_cases"]
+bra_new = df.loc[df["iso_code"] == 'BRA',"new_cases"]
+bra_vacc = df.loc[df["iso_code"] == 'BRA',"new_vaccinations_smoothed"]
+
+date = df.loc[df["iso_code"] == 'MEX', "date"]
+
+plt.bar(date,bra_vacc, label = 'Vaccination', color='gray')
+plt.bar(date,bra_new, label = 'New Cases', color='lightgray')
+
+plt.legend()
+plt.semilogy()
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=30)) 
+plt.gca().xaxis.set_tick_params(rotation = 30)
+plt.title('Brazil Daily Chart')
+plt.show()
+
+#China graph
+chn_cases = df.loc[df["iso_code"] == 'CHN',"total_cases"]
+chn_new = df.loc[df["iso_code"] == 'CHN',"new_cases"]
+chn_vacc = df.loc[df["iso_code"] == 'CHN',"new_vaccinations_smoothed"]
+
+date = df.loc[df["iso_code"] == 'MEX', "date"]
+
+
+plt.bar(date,chn_vacc, label = 'Vaccination', color='darkgoldenrod')
+plt.bar(date,chn_new, label = 'New Cases', color='gold')
+
+plt.legend()
+plt.semilogy()
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=30)) 
+plt.gca().xaxis.set_tick_params(rotation = 30)
+plt.title('China Daily Chart')
+plt.show()
+
+#Jordan graph
+jor_cases = df.loc[df["iso_code"] == 'JOR',"total_cases"]
+jor_new = df.loc[df["iso_code"] == 'JOR',"new_cases"]
+jor_vacc = df.loc[df["iso_code"] == 'JOR',"new_vaccinations_smoothed"]
+
+date = df.loc[df["iso_code"] == 'MEX', "date"]
+
+plt.bar(date,jor_vacc, label = 'Vaccination', color='darkgreen')
+plt.bar(date,jor_new, label = 'New Cases', color='palegreen')
+
+plt.legend()
+plt.semilogy()
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=30)) 
+plt.gca().xaxis.set_tick_params(rotation = 30)
+plt.title('Jordan Daily Chart')
+plt.show()
+
+#USA graph
+usa_cases = df.loc[df["iso_code"] == 'USA',"total_cases"]
+usa_new = df.loc[df["iso_code"] == 'USA',"new_cases"]
+usa_vacc = df.loc[df["iso_code"] == 'USA',"new_vaccinations_smoothed"]
+
+date = df.loc[df["iso_code"] == 'MEX', "date"]
+
+plt.bar(date,usa_vacc, label = 'Vaccination', color='navy')
+plt.bar(date,usa_new, label = 'New Cases', color='royalblue')
+
+plt.legend()
+plt.semilogy()
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=30)) 
+plt.gca().xaxis.set_tick_params(rotation = 30)
+plt.title('USA Daily Chart')
+plt.show()
